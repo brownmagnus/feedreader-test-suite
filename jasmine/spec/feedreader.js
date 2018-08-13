@@ -27,7 +27,7 @@ $(function() {
         });
 
 
-        /* This is our second test - it tests to make sure that 
+        /* This is our second test - it tests to make sure that
          * each feed in the allFeeds has a URL defined
          * and that the URL is not empty.
          */
@@ -38,13 +38,14 @@ $(function() {
             }
          });
 
-        /* This is our second test - it tests to make sure that 
+        /* This is our third test - it tests to make sure that
          * each feed in the allFeeds has a name defined
          * and that the name is not empty.
          */
-         it('URL defined', function() {
+         it('name defined', function() {
             for (let feed of allFeeds) {
                 expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toBe(0);
             }
          });
     });
