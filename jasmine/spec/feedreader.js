@@ -63,15 +63,25 @@ $(function() {
          it('is hidden menu', function() {
             let bodyElem = document.querySelector('body');
             expect(bodyElem.classList.contains('menu-hidden')).toBe(true);
-         })
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+         });
+         /* A test that ensures the menu changes visibility
+          * when the menu icon is clicked. This test
+          * have two expectations: for the menu to display when
+          * clicked and hide when clicked again.
           */
-    });
-    /* TODO: Write a new test suite named "Initial Entries" */
+          it('toggles menu visibility', function() {
+            let bodyElem = document.querySelector('body');
 
+            $('.menu-icon-link').trigger("click");
+            expect(bodyElem.classList.contains('menu-hidden')).toBe(false);
+
+            $('.menu-icon-link').trigger("click");
+            expect(bodyElem.classList.contains('menu-hidden')).toBe(true);
+
+         });
+    });
+    /* A new test suite named "Initial Entries" */
+    
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
