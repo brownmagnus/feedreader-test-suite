@@ -95,10 +95,28 @@ $(function() {
              expect(feed.children.length > 0).toBe(true);
          });
      });
-    /* TODO: Write a new test suite named "New Feed Selection" */
-
-        /* TODO: Write a test that ensures when a new feed is loaded
+    /* A test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+        /* A test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
          */
+         var entryOne;
+         var entryTwo;
+
+         beforeEach(function(done) {
+            loadFeed(0);
+            entryOne = $('.feed')[0].innerText;
+            done();
+         });
+         afterEach(function(done) {
+            loadFeed(1);
+            entryTwo = $('.feed')[0].innerText;
+            done();
+         });
+
+         it('loaded feeds content do change', function() {
+            expect(entryOne).not.toBe(entryTwo);
+            console.log(entryOne + entryTwo);
+         });
+     });
 }());
