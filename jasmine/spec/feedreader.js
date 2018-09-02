@@ -101,19 +101,17 @@ $(function() {
          var entryTwo;
 
          beforeEach(function(done) {
-            loadFeed(0);
-            entryOne = $('.feed')[0].innerText;
-            done();
-         });
-         afterEach(function(done) {
-            loadFeed(1);
-            entryTwo = $('.feed')[0].innerText;
-            done();
+            loadFeed(0, function() {
+             entryOne = $('.feed')[0].innerText;
+             loadFeed(1, function() {
+               entryTwo = $('.feed')[0].innerText;
+             });
+             done();
+           })
          });
 
          it('loaded feeds content do change', function() {
             expect(entryOne).not.toBe(entryTwo);
-            console.log(entryOne + entryTwo);
          });
      });
 }());
