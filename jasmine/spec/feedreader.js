@@ -51,18 +51,17 @@ $(function() {
     });
 
 
-    /* Another test suite named "The menu" 
+    /* Another test suite named "The menu"
      * This suite is all about the menu function,
      * that the menu show and hide while clicked.
      */
     describe('The menu', function() {
-        /* A test that ensures the menu element is hidden 
-         * by default. This check if the  HTML classList 
+        /* A test that ensures the menu element is hidden
+         * by default. This check if the  HTML classList
          * is of hidden attirbute in the CSS.
          */
          it('is hidden menu', function() {
-            let bodyElem = document.querySelector('body');
-            expect(bodyElem.classList.contains('menu-hidden')).toBe(true);
+            expect($("body").hasClass('menu-hidden')).toBe(true);
          });
          /* A test that ensures the menu changes visibility
           * when the menu icon is clicked. This test
@@ -70,13 +69,12 @@ $(function() {
           * clicked and hide when clicked again.
           */
           it('toggles menu visibility', function() {
-            let bodyElem = document.querySelector('body');
 
             $('.menu-icon-link').trigger("click");
-            expect(bodyElem.classList.contains('menu-hidden')).toBe(false);
+            expect($("body").hasClass('menu-hidden')).toBe(false);
 
             $('.menu-icon-link').trigger("click");
-            expect(bodyElem.classList.contains('menu-hidden')).toBe(true);
+            expect($("body").hasClass('menu-hidden')).toBe(true);
 
          });
     });
